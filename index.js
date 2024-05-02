@@ -288,12 +288,6 @@ stopButton.addEventListener("click", () => {
   startButton.style.display = "inline";
   stopAnimation();
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  eskiSkor = skor; // Oyun bittiğinde eski skoru güncelle
-  document.getElementById("eskiSkor").innerHTML = "Önceki Skor: " + eskiSkor;
-  skor = 0;
-  document.getElementById("skor").innerHTML = "Skor: " + skor;
-  hata = 0;
-  document.getElementById("hata").innerHTML = "Hata:" + fail;
 });
 
 function startGame(velocity, delay) {
