@@ -25,6 +25,18 @@ let musicPlayers = {
     element: document.getElementById("tarkanYolla"),
     isPlaying: false,
   },
+  serdarOrtac: {
+    element: document.getElementById("serdarOrtac"),
+    isPlaying: false,
+  },
+  aleynaTilki: {
+    element: document.getElementById("aleynaTilki"),
+    isPlaying: false,
+  },
+  kaderdeGulecekmis: {
+    element: document.getElementById("kaderdeGulecekmis"),
+    isPlaying: false,
+  },
 };
 
 function drawCanvasUI() {
@@ -198,6 +210,7 @@ function handleKeyDown(event) {
   const key = event.key;
   // Tuşa basıldığında durumu belirle
   switch (key) {
+    case "w":
     case "ArrowUp":
       if (upArrowY < 520 && upArrowY >= 360) {
         console.log("orta tuşa basıldı");
@@ -208,6 +221,7 @@ function handleKeyDown(event) {
         fail++;
       }
       break;
+    case "d":
     case "ArrowRight":
       if (rightArrowY < 520 && rightArrowY >= 460) {
         console.log("sağ tışa basıldı");
@@ -218,6 +232,7 @@ function handleKeyDown(event) {
         fail++;
       }
       break;
+    case "a":
     case "ArrowLeft":
       if (leftArrowY < 520 && leftArrowY >= 460) {
         console.log("sol tuşa basıldı");
@@ -228,6 +243,7 @@ function handleKeyDown(event) {
         fail++;
       }
       break;
+    case "s":
     case "ArrowDown":
       if (bottomArrowY < 570 && bottomArrowY >= 510) {
         console.log("alt tuşa basıldı");
@@ -245,15 +261,13 @@ function handleKeyDown(event) {
   document.getElementById("hata").innerHTML = "Hata:" + fail;
 
   if (fail >= 5) {
-    alert("Oyun Bitti");
     startButton.style.display = "inline";
     stopAnimation();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    eskiSkor = skor; // Oyun bittiğinde eski skoru güncelle
     document.getElementById("eskiSkor").innerHTML = "Önceki Skor: " + eskiSkor;
     skor = 0;
     document.getElementById("skor").innerHTML = "Skor: " + skor;
-    fail = 0;
+    hata = 0;
     document.getElementById("hata").innerHTML = "Hata:" + fail;
   }
 }
@@ -311,7 +325,7 @@ function startGame(velocity, delay) {
     if (skor == 100) {
       fail--;
     }
-    velocity = 14; // Yeni bir hız değeri belirle
+    velocity = 15; // Yeni bir hız değeri belirle
     delay = 400;
   } else if (skor >= 200 && skor < 300) {
     if (skor == 200) {

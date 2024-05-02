@@ -12,12 +12,20 @@
     <audio class = "musiki" id="ahmetKaya" src="sound/ahmetKaya.mp3"></audio>
     <audio class = "musiki" id="bunnyGirl" src="sound/bunnyGirl.mp3"></audio>
     <audio class = "musiki" id="tarkanYolla" src="sound/tarkanYolla.mp3"></audio>
+    <audio class = "musiki" id="serdarOrtac" src="sound/serdarOrtac.mp3"></audio>   
+    <audio class = "musiki" id="aleynaTilki" src="sound/aleynaTilki.mp3"></audio>
+    <audio class = "musiki" id="kaderdeGulecekmis" src="sound/kaderdeGulcekmis.mp3"></audio>
+    <div class="header">
     <h2>Ritim Oyunu</h2>
-    <input type="range" id="volume" min="0" max="100" step="1" value="50" onchange="adjustVolume()">
+    <input type="range" id="volume" min="0" max="100" step="1" value="" onchange="adjustVolume()">
+    </div>
     <div class="songs">
         <button id="music" onclick="playMusic('ahmetKaya')">Ahmet Kaya</button>
         <button id="music" onclick="playMusic('bunnyGirl')">Bunny Girl</button>
         <button id="music" onclick="playMusic('tarkanYolla')">Tarkan Yolla</button>
+        <button id="music" onclick="playMusic('serdarOrtac')">Serdar ortac</button>
+        <button id="music" onclick="playMusic('aleynaTilki')">Aleyna Tilki</button>
+        <button id="music" onclick="playMusic('kaderdeGulecekmis')">Huseyin Kagit</button>
     </div>
     <div class="game-info">
         <span id="skor">Skor:</span>
