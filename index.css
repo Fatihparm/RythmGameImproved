@@ -1,0 +1,111 @@
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: linear-gradient(180deg, #7a7978, #303030);
+}
+
+h2{
+    text-align: center;
+    font-size: 2em;
+}
+canvas{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid black;
+    border-radius: 10px;
+    background: linear-gradient(0deg, #5d2550, #151d3e);
+    align-items: center;
+}
+
+button{
+    font-size: 1em;
+    padding: 5px;
+    margin: 1px;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    border: 3px solid black;
+    display: block;
+    margin-left: 50%;
+    margin-right: 50%;
+    width: 100px;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+
+.songs {
+    display: grid;
+    grid-template-columns: repeat(15, auto); /* 3 sütun oluşturur */
+    grid-gap:1px; /* İstenirse aralara boşluk ekleyebilirsiniz */
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+    max-width: 500px;
+}
+
+.songs button {
+    font-size: 1em;
+    padding: 5px;
+    margin: 1px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #bceb11e8, #c907ff);
+    cursor: pointer;
+    border: 1px solid black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+
+}
+
+button:hover{
+    background-color: lightgrey;
+}
+
+.game-info{
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: repeat(3, auto);
+    font-size: 2em;
+}
+
+.game-info span{
+    display: block;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1em;
+    border-radius: 10px;
+    background-color: ;
+}
+
+input{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1em;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+.buttons{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 50%;
+    max-width: 500px;
+}

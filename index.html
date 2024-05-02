@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RythmGame</title>
+    <link rel="stylesheet" href="index.css">
+    
+</head>
+<body>
+    <audio id="sound" src="sound/sound.mp3"></audio>
+    <audio class = "musiki" id="ahmetKaya" src="sound/ahmetKaya.mp3"></audio>
+    <audio class = "musiki" id="bunnyGirl" src="sound/bunnyGirl.mp3"></audio>
+    <audio class = "musiki" id="tarkanYolla" src="sound/tarkanYolla.mp3"></audio>
+    <h2>Ritim Oyunu</h2>
+    <input type="range" id="volume" min="0" max="100" step="1" value="50" onchange="adjustVolume()">
+    <div class="songs">
+        <button id="music" onclick="playMusic('ahmetKaya')">Ahmet Kaya</button>
+        <button id="music" onclick="playMusic('bunnyGirl')">Bunny Girl</button>
+        <button id="music" onclick="playMusic('tarkanYolla')">Tarkan Yolla</button>
+    </div>
+    <div class="game-info">
+        <span id="skor">Skor:</span>
+        <span id="eskiSkor">Önceki Skor:</span>
+        <span id="hata">Hata:</span>
+    </div>
+    <div class="buttons">
+        <button id="startButton">Başlat</button>
+        <button id="stopButton">Bitir</button>
+    </div>
+    <canvas id="canvas" width="800px" height="600px">
+    </canvas>
+    <script src="index.js"></script>
+</body>
+</html>
