@@ -11,6 +11,8 @@ let bottomArrowY = 0;
 let skor = 0;
 let eskiSkor = 0;
 let fail = 0;
+let animationDuration = 12;
+
 
 let musicPlayers = {
   ahmetKaya: {
@@ -68,7 +70,7 @@ function drawCanvasUI() {
   arrowLeft.lineTo(100, 450);
   arrowLeft.lineTo(100, 550);
   arrowLeft.lineTo(50, 500);
-  ctx.fillStyle = "black";
+  ctx.fillStyle = "white";
   ctx.fill(arrowLeft, "evenodd");
   ctx.fillRect(100, 475, 50, 50);
 
@@ -97,51 +99,63 @@ function drawCanvasUI() {
   ctx.fillRect(675, 450, 50, 50);
 }
 function drawArrowLeft(x, y) {
-  ctx.strokeStyle = "black";
+  ctx.fillStyle = "black";
   ctx.lineWidth = 5;
-  ctx.beginPath();
-  ctx.moveTo(x, y);
-  ctx.lineTo(x + 50, y - 50);
-  ctx.lineTo(x + 50, y + 50);
-  ctx.lineTo(x, y);
-  ctx.stroke();
-  ctx.strokeRect(x + 50, y - 25, 50, 50); // Dikdörtgeni çiz
+  item = new Path2D;
+  item.moveTo(x, y);
+  item.lineTo(x + 50, y - 50);
+  item.lineTo(x + 50, y + 50);
+  item.lineTo(x, y);
+  item.closePath();
+  ctx.fill(item, "evenodd");
+  ctx.fillRect(x + 50, y - 25, 50, 50); // Dikdörtgeni çiz
+}
+function drawArrowRight(x, y) {
+  ctx.fillStyle = "black";
+  ctx.lineWidth = 5;
+  
+  let item = new Path2D();
+  item.moveTo(x, y);
+  item.lineTo(x - 50, y - 50);
+  item.lineTo(x - 50, y + 50);
+  item.lineTo(x, y);
+  item.closePath();
+  
+  ctx.fill(item, "evenodd");
+  
+  ctx.fillRect(x - 100, y - 25, 50, 50);
 }
 function drawArrowUp(x, y) {
-  ctx.strokeStyle = "black";
+  ctx.fillStyle = "black";
   ctx.lineWidth = 5;
-  ctx.beginPath();
-  ctx.moveTo(x, y);
-  ctx.lineTo(x - 50, y + 50);
-  ctx.lineTo(x + 50, y + 50);
-  ctx.lineTo(x, y);
-  ctx.stroke();
-  ctx.strokeRect(x - 25, y + 50, 50, 50); // Dikdörtgeni çiz
+  
+  let item = new Path2D();
+  item.moveTo(x, y);
+  item.lineTo(x - 50, y + 50);
+  item.lineTo(x + 50, y + 50);
+  item.lineTo(x, y);
+  item.closePath();
+  
+  ctx.fill(item, "evenodd");
+  
+  ctx.fillRect(x - 25, y + 50, 50, 50);
 }
 
-function drawArrowRight(x, y) {
-  ctx.strokeStyle = "black";
-  ctx.lineWidth = 5;
-  ctx.beginPath();
-  ctx.moveTo(x, y);
-  ctx.lineTo(x - 50, y - 50);
-  ctx.lineTo(x - 50, y + 50);
-  ctx.lineTo(x, y);
-  ctx.stroke();
-  ctx.strokeRect(x - 100, y - 25, 50, 50); // Dikdörtgeni çiz
-}
 function drawArrowBottom(x, y) {
-  ctx.strokeStyle = "black";
+  ctx.fillStyle = "black";
   ctx.lineWidth = 5;
-  ctx.beginPath();
-  ctx.moveTo(x, y);
-  ctx.lineTo(x + 50, y - 50);
-  ctx.lineTo(x - 50, y - 50);
-  ctx.lineTo(x, y);
-  ctx.stroke();
-  ctx.strokeRect(x - 25, y - 100, 50, 50); // Dikdörtgeni çiz
+  
+  let item = new Path2D();
+  item.moveTo(x, y);
+  item.lineTo(x + 50, y - 50);
+  item.lineTo(x - 50, y - 50);
+  item.lineTo(x, y);
+  item.closePath();
+  
+  ctx.fill(item, "evenodd");
+  
+  ctx.fillRect(x - 25, y - 100, 50, 50);
 }
-
 function dropLeftArrow(velocity, callback) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawCanvasUI();
@@ -287,7 +301,6 @@ stopButton.addEventListener("click", () => {
   // Başlat butonunu göster
   startButton.style.display = "inline";
   stopAnimation();
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
 
 function startGame(velocity, delay) {
@@ -298,7 +311,6 @@ function startGame(velocity, delay) {
     rightArrowY = 0;
     bottomArrowY = 0;
     const position = Math.floor(Math.random() * 4) + 1;
-    // Seçilen pozisyona göre ilgili düşme fonksiyonunu çağır
     switch (position) {
       case 1:
         dropLeftArrow(velocity, () => startGame(velocity, delay));
@@ -317,18 +329,24 @@ function startGame(velocity, delay) {
   }, delay);
   if (skor >= 100 && skor < 200) {
     if (skor == 100) {
+      animationDuration -= 4;
+      document.documentElement.style.setProperty('--animation-duration', animationDuration + 's');
       fail--;
     }
-    velocity = 15; // Yeni bir hız değeri belirle
+    velocity = 14.1; 
     delay = 400;
   } else if (skor >= 200 && skor < 300) {
     if (skor == 200) {
+      animationDuration -= 4;
+      document.documentElement.style.setProperty('--animation-duration', animationDuration + 's');
       fail--;
     }
-    velocity = 19;
+    velocity = 18.96;
     delay = 400;
   } else if (skor >= 300 && skor < 400) {
     if (skor == 300) {
+      animationDuration -= 3;
+      document.documentElement.style.setProperty('--animation-duration', animationDuration + 's');
       fail--;
     }
     velocity = 25;
@@ -337,22 +355,30 @@ function startGame(velocity, delay) {
     if (skor == 400) {
       fail--;
     }
-    velocity = 29;
+    velocity = 28.95;
+    delay = 400;
+  } else if (skor >= 500) {
+    if(skor == 500){      
+      fail-=3;
+    }
+    velocity = 36.68;
     delay = 400;
   }
+  
 }
 
 function stopAnimation() {
   cancelAnimationFrame(animationId);
   document.removeEventListener("keydown", handleKeyDown);
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  eskiSkor = skor; // Oyun bittiğinde eski skoru güncelle
+  ctx.clearRect(0, 0, canvas.width, canvas.height); // Canvas'ı temizle
+  eskiSkor = skor; 
   document.getElementById("eskiSkor").innerHTML = "Önceki Skor: " + eskiSkor;
   skor = 0;
   document.getElementById("skor").innerHTML = "Skor: " + skor;
   fail = 0;
   document.getElementById("hata").innerHTML = "Hata:" + fail;
+  animationDuration =12;
+  document.documentElement.style.setProperty('--animation-duration', animationDuration + 's');
 }
 
 function playSuccessSound() {
