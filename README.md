@@ -4,7 +4,7 @@
 - 5 fails and the game is over.
 - As you gain 100 scores game goes faster! Also gain some free fail counts.
 - Play music and change volume.
-- You can play the game by [link](https://fatihparm.github.io/RythmGame)
+- You can play the game by [link](https://fatihparm.github.io/RythmGameImproved/)
 
 ![image](https://github.com/Fatihparm/RythmGameImproved/assets/114951374/2c19e5f7-81ac-441d-94af-a681717564b0)
 
